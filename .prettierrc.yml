@@ -1,0 +1,19 @@
+tabWidth: 2
+trailingComma: all
+#trailingComma: es5
+overrides:
+  - files: "*.ts"
+    options:
+      singleQuote: true
+      tabWidth: 4
+      # https://prettier.io/docs/en/options.html#arrow-function-parentheses
+      arrowParens: avoid
+      # https://prettier.io/docs/en/options.html#parser
+      #parser: babel-ts
+  - files: "*.js"
+    options:
+      singleQuote: true
+      tabWidth: 4
+  - files: "*.scss"
+    options:
+      singleQuote: true

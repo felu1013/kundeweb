@@ -1,0 +1,13 @@
+# Aufruf:   cd kustomize\dev
+#           kustomize build | kubectl apply -f -
+#           kustomize build | kubectl delete -f -
+
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../base
+
+commonLabels:
+  env: dev

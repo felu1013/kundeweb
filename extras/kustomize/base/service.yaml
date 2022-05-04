@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fahrradweb
+  labels:
+    app: fahrradweb
+spec:
+  selector:
+    app: fahrradweb
+  ports:
+    # - port: 443
+    #   name: https
+    - port: 80
+      name: http

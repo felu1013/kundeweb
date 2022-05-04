@@ -1,0 +1,31 @@
+# Aufruf:   i.a. bereits eingestellt:   $env:SKAFFOLD_PROFILE = 'dev'
+#                                       $env:TAG = '1.0.0'
+#           skaffold dev
+
+apiVersion: skaffold/v2beta27
+kind: Config
+metadata:
+  name: fahrradweb
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.TAG}}"
+  artifacts:
+    - image: docker.io/juergenzimmermann/fahrradweb
+  local: {}
+deploy:
+  kustomize:
+    paths: ["extras/kustomize/prod"]
+profiles:
+  - name: dev
+    activation:
+      - env: SKAFFOLD_PROFILE=dev
+    deploy:
+      kustomize:
+        paths: ["extras/kustomize/dev"]
+        flags:
+          disableValidation: true
+    portForward:
+      - resourceType: service
+        resourceName: fahrradweb
+        port: 80
