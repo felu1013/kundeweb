@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: acme
 
 configMapGenerator:
-  - name: fahrradweb-env
+  - name: kundeweb-env
     literals:
       - TZ=Europe/Berlin
       - LANG=de_DE.utf8

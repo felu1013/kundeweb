@@ -1,0 +1,32 @@
+<section class="mt-1 ms-1" *ngIf="fahrrad">
+  <h4>Fahrrad {{ fahrrad.id }}:</h4>
+
+  <div class="mt-2 ms-2">
+    <form [formGroup]="updateForm" role="form" (submit)="onSubmit()">
+      <hs-update-modell [updateForm]="updateForm" [currentValue]="fahrrad.modell">
+      </hs-update-modell>
+      <hs-update-art [updateForm]="updateForm" [currentValue]="fahrrad.art">
+      </hs-update-art>
+      <hs-update-marke [updateForm]="updateForm" [currentValue]="fahrrad.marke">
+      </hs-update-marke>
+      <hs-update-gewicht [updateForm]="updateForm" [currentValue]="fahrrad.gewicht">
+      </hs-update-gewicht>
+
+      <div class="row">
+        <div class="col offset-2 gy-3">
+          <!-- form.pristine ist das Gegenteil von form.dirty -->
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="updateForm.pristine || updateForm.invalid"
+          >
+            <i class="material-icons">check</i>
+            <span class="ms-1">Stammdaten aktualisieren</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<hs-error-message [text]="errorMsg"></hs-error-message>

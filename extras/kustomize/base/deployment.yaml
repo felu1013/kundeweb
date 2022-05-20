@@ -2,26 +2,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fahrradweb
+  name: kundeweb
   labels:
-    app: fahrradweb
+    app: kundeweb
 spec:
   selector:
     matchLabels:
-      app: fahrradweb
+      app: kundeweb
   replicas: 1
   template:
     metadata:
       labels:
-        app: fahrradweb
+        app: kundeweb
     spec:
-      serviceAccountName: acme-fahrradweb
+      serviceAccountName: acme-kundeweb
       containers:
-        - image: docker.io/juergenzimmermann/fahrradweb:1.0.0
-          name: fahrradweb
+        - image: docker.io/juergenzimmermann/kundeweb:1.0.0
+          name: kundeweb
           envFrom:
             - configMapRef:
-                name: fahrradweb-env
+                name: kundeweb-env
           ports:
             # - containerPort: 443
             #   name: https

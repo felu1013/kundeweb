@@ -17,7 +17,7 @@
 
 // webpack dev server und nginx als "Reverse Proxy", d.h. eingehende Requests
 const PATH_REST = '/rest';
-// CORS mit dem Appserver "fahrrad" (in Kubernetes):
+// CORS mit dem Appserver "kunde" (in Kubernetes):
 // const PATH_REST = 'https://localhost:3000';
 
 export const paths = {

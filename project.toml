@@ -13,8 +13,8 @@
 # https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/nginx
 
 # [project]
-id = "com.acme.fahrradweb"
-name = "Web Frontend fuer Microservice fahrrad"
+id = "com.acme.kundeweb"
+name = "Web Frontend fuer Microservice kunde"
 version = "1.0.0"
 authors = ["Juergen.Zimmermann@h-ka.de"]
 

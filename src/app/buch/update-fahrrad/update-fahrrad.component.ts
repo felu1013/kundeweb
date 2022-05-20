@@ -1,30 +1,13 @@
-/*
- * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 import { ActivatedRoute, Router } from '@angular/router'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 import {
-    type Buch,
-    type BuchArt,
-    BuchReadService,
-    BuchWriteService,
+    type Fahrrad,
+    type FahrradArt,
+    FahrradReadService,
+    FahrradWriteService,
     FindError,
     UpdateError,
-    type Verlag,
+    type Marke,
 } from '../shared';
 /* eslint-enable @typescript-eslint/consistent-type-imports */
 import { Component, type OnInit } from '@angular/core';
@@ -35,14 +18,14 @@ import { Title } from '@angular/platform-browser'; // eslint-disable-line @types
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r das Tag <code>hs-update-buch</code>
+ * Komponente f&uuml;r das Tag <code>hs-update-fahrrad</code>
  */
 @Component({
-    selector: 'hs-update-buch',
-    templateUrl: './update-buch.component.html',
+    selector: 'hs-update-fahrrad',
+    templateUrl: './update-fahrrad.component.html',
 })
-export class UpdateBuchComponent implements OnInit {
-    buch: Buch | undefined;
+export class UpdateFahrradComponent implements OnInit {
+    fahrrad: Fahrrad | undefined;
 
     readonly updateForm = new FormGroup({});
 
@@ -50,13 +33,13 @@ export class UpdateBuchComponent implements OnInit {
 
     // eslint-disable-next-line max-params
     constructor(
-        private readonly service: BuchWriteService,
-        private readonly readService: BuchReadService,
-        private readonly titleService: Title,
+        private readonly service: FahrradWriteService,
+        private readonly readService: FahrradReadService,
+        private readonly titleService: Title, //TODO()
         private readonly router: Router,
         private readonly route: ActivatedRoute,
     ) {
-        log.debug('UpdateBuchComponent.constructor()');
+        log.debug('UpdateFahrradComponent.constructor()');
     }
 
     ngOnInit() {
@@ -69,44 +52,42 @@ export class UpdateBuchComponent implements OnInit {
                 first(),
                 tap(result => {
                     this.#setProps(result);
-                    log.debug('UpdateBuchComponent.ngOnInit: buch=', this.buch);
+                    log.debug('UpdateFahrradComponent.ngOnInit: fahrrad=', this.fahrrad);
                 }),
             )
             .subscribe();
     }
 
     /**
-     * Die aktuellen Stammdaten f&uuml;r das angezeigte Buch-Objekt
+     * Die aktuellen Stammdaten f&uuml;r das angezeigte Fahrrad-Objekt
      * zur&uuml;ckschreiben.
      * @return false, um das durch den Button-Klick ausgel&ouml;ste Ereignis
      *         zu konsumieren.
      */
     onSubmit() {
-        if (this.updateForm.pristine || this.buch === undefined) {
-            log.debug('UpdateBuchComponent.onSubmit: keine Aenderungen');
+        if (this.updateForm.pristine || this.fahrrad === undefined) {
+            log.debug('UpdateFahrradComponent.onSubmit: keine Aenderungen');
             return;
         }
 
         const { titel } = this.updateForm.value as { titel: string };
-        const { art } = this.updateForm.value as { art: BuchArt };
-        const { verlag } = this.updateForm.value as {
-            verlag: Verlag | '' | undefined;
+        const { art } = this.updateForm.value as { art: FahrradArt };
+        const { marke } = this.updateForm.value as {
+            marke: Marke | '' | undefined;
         };
-        const { rating } = this.updateForm.value as { rating: number };
-        const { isbn } = this.updateForm.value as { isbn: string };
+        const { gewicht } = this.updateForm.value as { gewicht: number };
 
-        const { buch, service } = this;
+        const { fahrrad, service } = this;
 
         // datum, preis und rabatt koennen im Formular nicht geaendert werden
-        buch.titel = titel;
-        buch.art = art;
-        buch.verlag = verlag;
-        buch.rating = rating;
-        buch.isbn = isbn;
-        log.debug('UpdateBuchComponent.onSubmit: buch=', buch);
+        fahrrad.modell = modell;
+        fahrrad.art = art;
+        fahrrad.marke = marke;
+        fahrrad.gewicht = gewicht;
+        log.debug('UpdateFahrradComponent.onSubmit: fahrrad=', fahrrad);
 
         service
-            .update(buch)
+            .update(fahrrad)
             .pipe(
                 first(),
                 tap(result => this.#handleUpdateResult(result)),
@@ -119,28 +100,28 @@ export class UpdateBuchComponent implements OnInit {
         return false;
     }
 
-    #setProps(result: Buch | FindError) {
+    #setProps(result: Fahrrad | FindError) {
         if (result instanceof FindError) {
             this.#handleFindError(result);
             return;
         }
 
-        this.buch = result;
+        this.fahrrad = result;
         this.errorMsg = undefined;
 
-        const titel = `Aktualisieren ${this.buch.id}`;
+        const titel = `Aktualisieren ${this.fahrrad.id}`;
         this.titleService.setTitle(titel);
     }
 
     #handleFindError(err: FindError) {
         const { statuscode } = err;
-        log.debug('UpdateBuchComponent.#handleError: statuscode=', statuscode);
+        log.debug('UpdateFahrradComponent.#handleError: statuscode=', statuscode);
 
-        this.buch = undefined;
+        this.fahrrad = undefined;
 
         switch (statuscode) {
             case HttpStatusCode.NotFound:
-                this.errorMsg = 'Kein Buch gefunden.';
+                this.errorMsg = 'Kein Fahrrad gefunden.';
                 break;
             case HttpStatusCode.TooManyRequests:
                 this.errorMsg =
@@ -156,7 +137,7 @@ export class UpdateBuchComponent implements OnInit {
         }
     }
 
-    #handleUpdateResult(result: Buch | UpdateError) {
+    #handleUpdateResult(result: Fahrrad | UpdateError) {
         if (!(result instanceof UpdateError)) {
             return;
         }
