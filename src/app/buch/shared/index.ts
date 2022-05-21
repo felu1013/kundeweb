@@ -6,9 +6,9 @@ export {
     MAX_GEWICHT,
 } from './fahrrad';
 export {
-    FahrradReadService,
-    type FahrraederServer,
+    KundeReadService,
+    type KundenServer,
     type Suchkriterien,
 } from './fahrradRead.service';
-export { FahrradWriteService } from './fahrradWrite.service';
+export { KundeWriteService } from './kundeWrite.service';
 export { FindError, SaveError, UpdateError, RemoveError } from './errors';

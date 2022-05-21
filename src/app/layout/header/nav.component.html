@@ -5,10 +5,10 @@
 <ul class="navbar-nav me-auto">
   <li class="nav-item active">
     <a
-      routerLink="/fahrraeder/suche"
+      routerLink="/kunden/suche"
       routerLinkActive="active"
       class="nav-link"
-      aria-label="Suche Fahrraeder"
+      aria-label="Suche Kunden"
     >
       <i class="material-icons">search</i>
       <span class="ms-1">Suche</span>
@@ -17,52 +17,13 @@
 
   <li class="nav-item" *ngIf="isAdmin$ | async">
     <a
-      routerLink="/fahrraeder/create"
+      routerLink="/kunden/create"
       class="nav-link"
-      aria-label="Neues Fahrrad anlegen"
+      aria-label="Neuen Kunde anlegen"
     >
       <i class="material-icons">menu_book</i>
-      <span class="ms-1">Neues Fahrrad</span>
+      <span class="ms-1">Neuer Kunde</span>
     </a>
-  </li>
-
-  <li class="nav-item dropdown" *ngIf="isAdmin$ | async">
-    <div
-      class="nav-link dropdown-toggle"
-      id="navbarDropdownMenuLink"
-      data-bs-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      <i class="material-icons">bar_chart</i>
-      <span class="ms-1">Diagramme</span>
-    </div>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-      <a
-        routerLink="/fahrraeder/balkendiagramm"
-        class="dropdown-item"
-        aria-label="Balkendiagramm fuer Gewicht"
-      >
-        <i class="material-icons">bar_chart</i>
-        <span class="ms-1">Balkendiagramm</span>
-      </a>
-      <a
-        routerLink="/fahrraeder/liniendiagramm"
-        class="dropdown-item"
-        aria-label="Liniendiagramm fuer Gewicht"
-      >
-        <i class="material-icons">multiline_chart</i>
-        <span class="ms-1">Liniendiagramm</span>
-      </a>
-      <a
-        routerLink="/fahrraeder/tortendiagramm"
-        class="dropdown-item"
-        aria-label="Tortendiagramm fuer Gewicht"
-      >
-        <i class="material-icons">pie_chart</i>
-        <span class="ms-1">Tortendiagramm</span>
-      </a>
-    </div>
   </li>
 </ul>
 
