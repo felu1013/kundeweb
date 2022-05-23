@@ -20,7 +20,9 @@ const routes: Routes = [
         // zzgl. Preloading von sichtbaren Links (s.u.)
         // https://angular.io/guide/lazy-loading-ngmodules
         loadChildren: () =>
-            import('./kunde/kunde-routing.module').then(m => m.KundeRoutingModule),
+            import('./kunde/kunde-routing.module').then(
+                m => m.KundeRoutingModule
+            ),
     },
 ];
 
