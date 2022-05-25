@@ -1,0 +1,35 @@
+<div class="row">
+    <label for="adresseInput" class="col col-2 col-form-label gy-3">
+      Adresse *
+    </label>
+    <div class="col col-10 gy-3" [formGroup]="createForm">
+      <div class="input-group">
+        <input
+          id="adresseInput"
+          placeholder="Adresse"
+          class="form-control"
+          autofocus
+          formControlName="adresse"
+          [class.is-invalid]="adresse.invalid && adresse.touched"
+          [class.is-valid]="adresse.valid && adresse.touched"
+        />
+  
+        <div
+          class="invalid-feedback"
+          *ngIf="adresse.invalid && adresse.touched && adresse.errors"
+        >
+          <i class="material-icons">error</i>
+          <span class="ms-1" *ngIf="adresse.errors['required']">
+            Eine Adresse muss eingegeben werden.
+          </span>
+          <span class="ms-1" *ngIf="adresse.errors['minlength']">
+            Eine Adresse muss mindestens 2 Zeichen lang sein.
+          </span>
+          <span class="ms-1" *ngIf="adresse.errors['pattern']">
+            Eine Adresse muss mit einem Buchstaben oder einer Ziffer beginnen.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
