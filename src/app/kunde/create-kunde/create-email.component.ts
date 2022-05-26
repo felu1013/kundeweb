@@ -19,8 +19,7 @@ export class CreateEmailComponent implements OnInit {
     readonly email = new FormControl(undefined, [
         Validators.required,
         Validators.minLength(CreateEmailComponent.MIN_LENGTH),
-        // eslint-disable-next-line require-unicode-regexp
-        Validators.pattern(/[^@]+@[^.]+\..+/g),
+        Validators.pattern(/[^@]+@[^.]+\..+/u),
     ]);
 
     ngOnInit() {

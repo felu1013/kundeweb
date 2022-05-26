@@ -1,8 +1,6 @@
 export type GeschlechtTyp = 'D' | 'M' | 'W';
 
-export const EMAIL_REGEX =
-    // eslint-disable-next-line require-unicode-regexp
-    /[^@]+@[^.]+\..+/g;
+export const EMAIL_REGEX = /[^@]+@[^.]+\..+/u;
 
 export interface Kunde {
     id?: string;
