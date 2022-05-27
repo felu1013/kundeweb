@@ -1,0 +1,31 @@
+<section class="card" [@fadeIn]="'in'">
+    <div class="card-header bg-primary">
+      <i class="material-icons">search</i>
+      <span class="ms-1 fw-bold"> Eingabe der Suchkriterien </span>
+    </div>
+    <div class="card-body">
+      <form (submit)="onSubmit()" role="form">
+        <hs-suche-nachname (nachname$)="setNachname($event)"></hs-suche-nachname>
+        <hs-suche-geschlecht (geschlecht$)="setGeschlecht($event)"></hs-suche-geschlecht>
+  
+        <div class="row">
+          <div class="col offset-2 gy-3">
+            <i class="material-icons">info</i>
+            <span class="ms-1">
+              Hinweis: Keine Eingabe liefert alle Kunden
+            </span>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col offset-2 gy-3">
+            <button type="submit" class="btn btn-primary">
+              <i class="material-icons">search</i>
+              <span class="ms-1">Suchen</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  

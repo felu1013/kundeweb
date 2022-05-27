@@ -3,10 +3,10 @@ import { AdminGuard } from '../auth/admin.guard';
 import { CreateKundeComponent } from './create-kunde/create-kunde.component';
 import { CreateKundeGuard } from './create-kunde/create-kunde.guard';
 import { DetailsKundeComponent } from './details-kunde/details-kunde.component';
+import { KundeModule } from './kunde.module';
 import { NgModule } from '@angular/core';
 import { SucheKundenComponent } from './suche-kunden/suche-kunden.component';
 import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
-import { KundeModule } from './kunde.module';
 
 // Route-Definitionen fuer das Feature-Modul "kunde":
 // Zuordnung von Pfaden und Komponenten mit HTML-Templates
