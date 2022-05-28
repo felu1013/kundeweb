@@ -21,7 +21,7 @@ const routes: Routes = [
         // https://angular.io/guide/lazy-loading-ngmodules
         loadChildren: () =>
             import('./kunde/kunde-routing.module').then(
-                m => m.KundeRoutingModule
+                m => m.KundeRoutingModule,
             ),
     },
 ];
