@@ -28,7 +28,7 @@ export class CreateKundeGuard implements CanDeactivate<CreateKundeComponent> {
             return true;
         }
 
-        createKunde.shotWarning = true;
+        createKunde.showWarning = true;
         createKunde.fertig = true;
         log.debug('CreateKundeGuard.canDeactivate: Verlassen der Seite');
         return false;

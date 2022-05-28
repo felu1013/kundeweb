@@ -5,7 +5,7 @@ import { CreateGeschlechtComponent } from './create-geschlecht.component';
 import { CreateKategorieComponent } from './create-kategorie.component';
 import { CreateKundeComponent } from './create-kunde.component';
 import { CreateNachnameComponent } from './create-nachname.component';
-import { CreateNewsletterComponent } from './create-newslette.component';
+import { CreateNewsletterComponent } from './create-newsletter.component';
 import { CreateUsernameComponent } from './create-username.component';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';

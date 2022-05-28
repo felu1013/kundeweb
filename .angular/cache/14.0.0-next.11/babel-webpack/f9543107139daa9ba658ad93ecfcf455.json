@@ -1,0 +1,1 @@
+{"ast":null,"code":"// \"Barrel\" gemaess Angular Styleguide:\n//  - mehrere ES-Module aggregieren und diese exportieren\n//  - kuenftig weniger Import-Anweisungen\nexport { easeIn, easeOut, fadeIn } from './animations';\nexport { toBase64 } from './functions';\nexport { paths } from './paths';","map":null,"metadata":{},"sourceType":"module"}

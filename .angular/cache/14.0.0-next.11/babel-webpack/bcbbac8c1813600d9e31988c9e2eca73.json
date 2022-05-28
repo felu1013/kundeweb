@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const EMAIL_REGEX = /[^@]+@[^.]+\\..+/u;","map":null,"metadata":{},"sourceType":"module"}

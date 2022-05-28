@@ -140,5 +140,8 @@
       }
     }
   },
-  "defaultProject": "acme"
+  "defaultProject": "acme",
+  "cli": {
+    "analytics": false
+  }
 }

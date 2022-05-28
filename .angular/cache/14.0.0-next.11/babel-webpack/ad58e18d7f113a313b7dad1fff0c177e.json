@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { EMAIL_REGEX } from './kunde';\nexport { KundeReadService } from './kundeRead.service';\nexport { KundeWriteService } from './kundeWrite.service';\nexport { FindError, SaveError, UpdateError, RemoveError } from './errors';","map":null,"metadata":{},"sourceType":"module"}

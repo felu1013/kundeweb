@@ -19,7 +19,7 @@ import log from 'loglevel';
 export class CreateKundeComponent implements OnInit {
     readonly createForm = new FormGroup({});
 
-    shotWarning = false;
+    showWarning = false;
 
     fertig = false;
 
@@ -73,7 +73,7 @@ export class CreateKundeComponent implements OnInit {
         }
 
         this.fertig = true;
-        this.shotWarning = false;
+        this.showWarning = false;
         this.errorMsg = undefined;
 
         const id = result;
