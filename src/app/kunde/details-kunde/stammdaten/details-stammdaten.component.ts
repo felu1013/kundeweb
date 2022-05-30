@@ -1,5 +1,5 @@
 import { Component, Input, type OnInit } from '@angular/core';
-import { type Kunde } from '../../shared/kunde';
+import type { Kunde } from '../../shared/kunde';
 import log from 'loglevel';
 
 /**
