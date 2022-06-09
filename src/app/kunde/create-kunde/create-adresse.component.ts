@@ -19,7 +19,7 @@ export class CreateAdresseComponent implements OnInit {
     readonly adresse = new FormControl(undefined, [
         Validators.required,
         Validators.minLength(CreateAdresseComponent.MIN_LENGTH),
-        Validators.pattern(/[A-Z][a-z.-]+[ ]?)+/u),
+        Validators.pattern(/^\w/u),
     ]);
 
     ngOnInit() {

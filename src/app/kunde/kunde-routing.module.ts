@@ -38,4 +38,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes), KundeModule],
     exports: [RouterModule],
 })
-export class BuchRoutingModule {}
+export class KundeRoutingModule {}
